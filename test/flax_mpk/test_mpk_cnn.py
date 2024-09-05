@@ -30,7 +30,6 @@ class MPK_EmbedNet(nn.Module):
     """A demonstration of using a MultiPole Kernel (MPK) embedding"""
     filters: Sequence[int]
     multipole_tomo1: MPK_layer
-    cl_compression: Callable
     act: Callable = nn.swish
     dtype: Any = jnp.float32
 
@@ -171,8 +170,6 @@ def test_embedding():
                                                              strides=mpk_strides,
                                                              pad_size=None) for i, f in enumerate(mpk_input_filters)],
             act=nn.swish),
-        cl_compression=lambda x: x,  # FIXME: clarify what this does
-
     )
 
     # apply it to some dummy inputs

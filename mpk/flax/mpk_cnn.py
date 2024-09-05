@@ -70,6 +70,7 @@ class MultipoleConv(nn.Module):
             dim = len(self.kernel.shape) - 2  # input kernel is one dim higher
             spatial_pad = ((self.pad_size, self.pad_size),) * dim
 
+            # TODO: (for Lucas) -- generalise to 3D in this step
             # only pad the spatial dimensions -- input is in shape (spatial, ..., filters)
             pad_width = spatial_pad + ((0, 0),)
 

@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = 'mpk'
+version = '0.1'
+description = 'Convolutional neural network layer using symmetric kernels based on multipole expansion with spherical harmonics'
+readme = 'README.md'
+requires-python = ">=3.7"
+dependencies = [
+    "jax",
+    "flax",
+    "scipy",
+]
+
+[project.urls]
+repository = "https://github.com/AsianTaco/mpk"
+
+[project.optional-dependencies]
+test = ['pytest']

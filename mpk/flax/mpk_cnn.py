@@ -40,15 +40,7 @@ class MultipoleConv(nn.Module):
                                                                     dtype=self.dtype)
 
     def __call__(self, input_field):
-        # TOASK: Do we want to support even kernel shapes?
-
-        # print("kernel", self.kernel.shape)
-        # print("mpk kernel", self.multipole_kernels.shape)
-        # print("kernel weights", self.kernel_weights.shape)
-        # print("kernel weights", self.kernel_weights)
-        # print("input", padded_input.shape)
-
-        # this is the default for one input filter (one field)
+        # TODO: generalise to lax backend
         if self.backend == "scipy":
             padded_input = jnp.pad(input_field, pad_width=self.pad_size, mode='wrap')
 
